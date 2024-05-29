@@ -1,2 +1,2 @@
-# geom99
-Github repository for Group 3 in the Web GIS Development course in Fleming College's GIS Applications Specialist program.
+FrostFinder: A Campus Navigation Solution
+FrostFinder is a web application that streamlines navigation across Frost Campus, providing students and visitors with a polished, user-friendly interface to efficiently locate classrooms and essential student services.
