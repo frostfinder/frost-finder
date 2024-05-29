@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> S.S. Pathfinders </title>
+	
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="CSS/stylesheet.css">
+  <link id="g5style" rel="stylesheet" href="CSS/stylesheet5.css">	
+  <!--Style sheet for social media icons from:https://www.w3schools.com/howto/howto_css_social_media_buttons.asp-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin="">
+  <!-- Leaflet Search CSS -->
+  <link rel="stylesheet" href="CSS/leaflet-search.css">
+	
+  <!-- SCRIPTS -->
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+  <!-- Leaflet AJAX JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+  <!-- Leaflet Search JS
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/2.9.8/leaflet-search.min.js"></script> -->
+  <script src="JavaScript/leaflet-search.js"></script>
+	
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+</head>
+  <body>
+  
+  <!-- Navbar (sit on top) November 16,2023-->
+  <div class="topnav" id="myTopnav">
+    <a href="index.html"> <img src="images/Logo.png" alt="Our Logo" class="logo" width="25" height="25"></a>
+    <a href="project.html">Project</a>
+    <a href="instantapps.html">Instant Apps</a>
+    <a href="experiencebuilder.html">Experience Builder</a>  
+    <a href="leaflet.html" class="active1">Leaflet</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
+<!-- Header -->
+<header class="imageHeader" >
+  <div>
+    <h1 class= "header-start"> S.S. Pathfinders </h1>
+    <p class = "header-Middle">Working Together to Navigate Your World</p>
+    <p class = "header-end"> Since 2024 </p>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-container w3-padding-32 text-dive" id="projects">
+    <h3>Leaflet</h3> 
+    <p>The application below is a Leaflet map created using JavaScript, coded directly in this webpage (screenshots at bottom of page).</p>
+    <div id="map"></div>  
+
+    <h3>Overview</h3>
+    <p>The goal of this group was to create a navigation map that allows visitors to see their location and the location of a searchable
+	destination. On this map, users can toggle the upper and lower floor layers on and off, and input a room number into the search box which 
+	can autocomplete. The application then zooms in to the area where the room is found.</p>
+    <p>This is on the way to accomplishing what the group's end goal was. For a team without much JavaScript experience and no experience with Leaflet,
+    all of the quirks of the open source library became time-consuming obstacles. A search box and layer visibility options are basic functionalities of
+    online maps, but incorporating them into this map took the entire duration of this project. The tools and options are very specific and often 
+    unintuitive. </p>
+    <p><b>Next Steps: </b>There are some issues that would need to be addressed to build upon the existing code. The current application does not
+    drop a pin or highlight the room that is being searched for, only zooming into the general area. It also does not respond based on which layer
+    the destination is in, requiring the map user to toggle manually. The search function is clunky, and on mobile forces the webpage to zoom in
+    to the search bar without resetting to the map extent, which is bad UI. The layers sometimes display out of order, with the lower floor over top of the
+    lower floor. If that could be sorted out, resymbolizing the map by room type would be a better solution than the two-colour symbology for the two floors.
+    Finally, future work would need to be done to include a locator so the user can see their location in relation to the destination.</p>
+    
+
+    <h3>Conclusion</h3>
+    <p>Leaflet is a very useful and customizable tool with many functionalities that are hard to find in an open source environment. However, 
+    harnessing the capabilities within Leaflet is a difficult process, especially for people without a strong background in JavaScript. An experienced
+    Leaflet user would be able to accomplish the goal set out by the team only using Leaflet, and given enough time, S.S. Pathfinders likely
+    could as well. The full application made using Leaflet would not require proprietary softwares or licenses, which depending on budget and 
+    available software, could justify the amount of work and/or expertise needed on the front-end.</p>
+    
+	
+    <h3>Pros</h3>
+    <ul> 
+	    <li> Free to use and can be hosted in a GitHub repository</li>
+	    <li> Very customizable</li>
+	    <li> Lightweight and loads quickly </li>
+	    <li> Responsive</li>
+    </ul>
+    <h3>Cons</h3>
+    <ul>
+	    <li> Leaflet is difficult to use, requiring a large time investment or a very experienced user</li>
+	    <li> Leaflet is open source, and many of the plugins are outdated and have no support from the creator</li>
+	    <li> Not as refined and modern looking as other applications without massive effort</li>
+    </ul>
+    <h3>Screenshots</h3>
+    <p>Search box and layer toggle</p>
+    <img src="images/finalLeaflet.png" alt="Leaflet app for Frost Campus showing a layer toggle and search box" class="instant">
+    <br>
+    <p>Zoom in after clicking search</p>
+    <img src="images/finalLeafletZoom.png" alt="Leaflet app for Frost Campus showing how the map zooms into the destination" class="instant">
+    <br>
+    <p>Toggle Function to show only the second floor</p>
+    <img src="images/finalLeafletToggle.png" alt="Leaflet app for Frost Campus showing how the toggle function works to show the second floor only" class="instant">
+</div>
+  
+<script>
+// used "Leaflet Quick Start Guide" and "Using GeoJSON with Leaflet" from Leaflet documentation to learn process
+// https://leafletjs.com/examples.html
+	
+var map = L.map('map').setView([44.3408, -78.7409], 18);
+
+var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+	minZoom: 0,
+	maxZoom: 20,
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+}).addTo(map);	
+
+// var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
+// 	minZoom: 15,
+// 	maxZoom: 19,
+// 	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+// 	ext: 'png'
+// }).addTo(map);
+
+// Add floor shapefiles from locally hosted GeoJSON
+var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
+    style: function(feature) {
+        switch (feature.properties.SPACETYPE) {
+            case 'OFFICE': return {color: "#ff0000", fillOpacity: 1}
+	    case 'CLASSROOM': return {color: "#FF5733", fillOpacity: 1};
+        }
+    }
+});
+firstFloor.on('data:loaded', function(){
+firstFloor.addTo(map);
+});
+	
+var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
+    style: function(feature) {
+        switch (feature.properties.FLOOR) {
+            case '1': return {color: "#0000ff"};
+        }
+    }
+});	
+secondFloor.on('data:loaded', function(){
+secondFloor.addTo(map);
+});
+
+// Define overlays to be included in the layer toggle and add toggle to map, making layer selection static on screen
+var floors = {
+    'Upper Floor': secondFloor,
+    'Lower Floor': firstFloor    
+}
+	
+var layerControl = L.control.layers(null, floors, {collapsed: false}).addTo(map);
+	
+// Create feature group to call within search box 
+// inspired by https://gis.stackexchange.com/questions/166044/applying-a-single-leaflet-search-control-to-search-multiple-layers
+var frostFloors = L.featureGroup([firstFloor, secondFloor]).addTo(map);
+
+// Create search box and add to map, searching features by room number
+var controlSearch = new L.Control.Search({
+    position:'topright',		
+    layer: frostFloors,
+    propertyName: 'LONGNAME',
+    initial: false,
+    zoom: 20,
+    marker: false
+});
+
+map.addControl( controlSearch );
+
+</script>
+	  
+<!-- End page content -->
+
+<footer class="w3-center w3-padding-16 bottom" id="footer">
+</footer>
+<script src="JavaScript/Scripts.js"></script>
+</body>
+</html>
+
