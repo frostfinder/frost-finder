@@ -124,13 +124,12 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
-    style: function(feature) {
-        return {
-            color: "#00FF00", // Set the color to green
-            fillOpacity: 1 // Set the fill opacity to fully opaque;
+   style: function(feature) {
+        switch (feature.properties.LEVEL_ID) {
+            case 'FROST.L1': return {color: "#ff0000"};
         }
     }
-});
+});	
 firstFloor.on('data:loaded', function(){
 firstFloor.addTo(map);
 });
@@ -162,7 +161,7 @@ var frostFloors = L.featureGroup([firstFloor, secondFloor]).addTo(map);
 var controlSearch = new L.Control.Search({
     position:'topright',		
     layer: frostFloors,
-    propertyName: 'LONGNAME',
+    propertyName: 'NAME',
     initial: false,
     zoom: 20,
     marker: false
