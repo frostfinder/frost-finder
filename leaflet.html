@@ -160,9 +160,9 @@ campus.addTo(map);
 var greenspace = new L.GeoJSON.AJAX("GeoJSON/greenspace.geojson", {
     style: function(feature) {
         switch (feature.properties.Type) {
-            case 'FOREST': return {color: "#97be87", fillOpacity: 1}
-		case 'YARD': return {color: "#f4f2dc", fillOpacity: 1}
-		case 'WATER': return {color: "#aad3df", fillOpacity: 1};
+            case 'Forest': return {color: "#97be87", fillOpacity: 1}
+		case 'Yard': return {color: "#f4f2dc", fillOpacity: 1}
+		case 'Water': return {color: "#aad3df", fillOpacity: 1};
         }
     }
 });	
