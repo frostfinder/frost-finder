@@ -129,9 +129,7 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
         }
     }
 });	
-secondFloor.on('data:loaded', function(){
-secondFloor.addTo(map);
-});
+
 	
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
@@ -141,9 +139,7 @@ var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
         }
     }
 });	
-firstFloor.on('data:loaded', function(){
-firstFloor.addTo(map);
-});
+
 
 var campus = new L.GeoJSON.AJAX("GeoJSON/campus.geojson", {
     style: function(feature) {
@@ -153,9 +149,7 @@ var campus = new L.GeoJSON.AJAX("GeoJSON/campus.geojson", {
         }
     }
 });	
-campus.on('data:loaded', function(){
-campus.addTo(map);
-});
+
 
 var greenspace = new L.GeoJSON.AJAX("GeoJSON/greenspace.geojson", {
     style: function(feature) {
@@ -168,9 +162,6 @@ var greenspace = new L.GeoJSON.AJAX("GeoJSON/greenspace.geojson", {
         }
     }
 });	
-greenspace.on('data:loaded', function(){
-greenspace.addTo(map);
-});
 
 var buildings = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
     style: function(feature) {
@@ -180,9 +171,7 @@ var buildings = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
         }
     }
 });	
-buildings.on('data:loaded', function(){
-buildings.addTo(map);
-});
+
 
 var roads = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
     style: function(feature) {
@@ -192,10 +181,24 @@ var roads = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
         }
     }
 });	
+campus.on('data:loaded', function(){
+campus.addTo(map);
+});
 roads.on('data:loaded', function(){
 roads.addTo(map);
 });
-	
+buildings.on('data:loaded', function(){
+buildings.addTo(map);
+});
+greenspace.on('data:loaded', function(){
+greenspace.addTo(map);
+});
+firstFloor.on('data:loaded', function(){
+firstFloor.addTo(map);
+});	
+secondFloor.on('data:loaded', function(){
+secondFloor.addTo(map);
+});
 // Define overlays to be included in the layer toggle and add toggle to map, making layer selection static on screen
 var floors = {
     'Upper Floor': secondFloor,
