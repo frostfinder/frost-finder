@@ -124,22 +124,13 @@ var map = L.map('map').setView([44.3408, -78.7409], 18);
 
 	
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
-    // style: function(feature) {
-      //  switch (feature.properties.LEVEL_ID) {
-          //  case 'FROST.L2':
-               // return { color: "#00D1C3", fillOpacity: 1 };
+     style: function(feature) {
+        switch (feature.properties.LEVEL_ID) {
+            case 'FROST.L2':
+                return { color: "#00D1C3"};
         }
     },
-    filter: function(feature) {
-        if (feature.properties.USE_TYPE) {
-            switch (feature.properties.USE_TYPE) {
-                case "Student Service":
-                    return { color: "#00D1C3", fillOpacity: 1 }; // Include feature in the layer
-                default:
-                    return { color: "#00D1C3"}; // Exclude feature from the layer
-            }
-        } 
-    };	
+    
 	
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
