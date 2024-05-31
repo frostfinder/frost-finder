@@ -147,7 +147,7 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature) {
-        switch (feature.properties.LEVEL_ID) {
+        switch (feature.properties.USE_TYPE) {
            case 'Washroom': return { color: "#0075C0 "}
 	     case 'Student Service': return { color: "#00D1C3 "}    
 		case 'Office': return { color: "#000000 "}
