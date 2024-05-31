@@ -146,9 +146,9 @@ firstFloor.addTo(map);
 });
 
 var campus = new L.GeoJSON.AJAX("GeoJSON/campus.geojson", {
-   style: function(feature) {
-        switch (feature.properties.OBJECTID) {
-            case '2': return {color: "#c2d9b9"};
+    style: function(feature) {
+        return {
+            color: "#c2d9b9"
         }
     }
 });	
