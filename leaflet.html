@@ -148,7 +148,18 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature) {
         switch (feature.properties.LEVEL_ID) {
-            case 'FROST.L1': return {color: "#ff0000"};
+           case 'Washroom': return { color: "#0075C0 "}
+	     case 'Student Service': return { color: "#00D1C3 "}    
+		case 'Office': return { color: "#000000 "}
+		case 'Storage': return { color: "#000000 "}
+		case 'Stairwell': return { color: "#b2b2b2"}	
+		case 'Ramp': return { color: "#b2b2b2"}
+		case 'Hallway': return { color: "#b2b2b2"}
+		case 'Entryway': return { color: "#b2b2b2"}
+		case 'Classroom': return { color: "#Pheonix Orange "}
+		case 'Boardroom': return { color: "#000000 "}
+		case 'null': return { color: "#000000 "}
+		case 'Other': return { color: "#000000 "};
         }
     }
 });	
