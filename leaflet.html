@@ -122,7 +122,6 @@ var map = L.map('map').setView([44.3408, -78.7409], 18);
 // 	ext: 'png'
 // }).addTo(map);
 
-map.createPane("pane450").style.zIndex = 450;	
 	
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
     style: function(feature) {
@@ -147,7 +146,6 @@ var campus = new L.GeoJSON.AJAX("GeoJSON/campus.geojson", {
         return {
             color: "#c2d9b9",
 	    fillOpacity: 1
-		pane: 450
         }
     }
 });	
@@ -157,7 +155,6 @@ var paved = new L.GeoJSON.AJAX("GeoJSON/paved.geojson", {
         return {
             color: "#cccccc",
 	    fillOpacity: 1
-		pane: 450
         }
     }
 });
@@ -179,7 +176,6 @@ var buildings = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
         return {
             color: "#686868",
 	    fillOpacity: 1
-		pane: 450
         }
     }
 });	
@@ -190,7 +186,6 @@ var roads = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
         return {
             color: "#9c9c9c",
 	    fillOpacity: 1
-		pane: 450
         }
     }
 });	
@@ -215,6 +210,9 @@ firstFloor.addTo(map);
 secondFloor.on('data:loaded', function(){
 secondFloor.addTo(map);
 });
+
+secondFloor.bringToFront(map)	
+	
 // Define overlays to be included in the layer toggle and add toggle to map, making layer selection static on screen
 var floors = {
     'Upper Floor': secondFloor,
