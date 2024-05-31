@@ -152,8 +152,8 @@ var baseMap = new L.GeoJSON.AJAX("GeoJSON/basemap.geojson", {
         }
     }
 });	
-firstFloor.on('data:loaded', function(){
-firstFloor.addTo(map);
+baseMap.on('data:loaded', function(){
+baseMap.addTo(map);
 });
 	
 // Define overlays to be included in the layer toggle and add toggle to map, making layer selection static on screen
