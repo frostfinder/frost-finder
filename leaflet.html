@@ -126,8 +126,8 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
     style: function(feature) {
         switch (feature.properties.SPACETYPE) {
-            case 'OFFICE': return {color: "#ff0000", fillOpacity: 1}
-	    case 'CLASSROOM': return {color: "#FF5733", fillOpacity: 1};
+            case 'Office': return {color: "#ff0000", fillOpacity: 1}
+	    case 'Classroom': return {color: "#FF5733", fillOpacity: 1};
         }
     }
 });
@@ -138,7 +138,7 @@ firstFloor.addTo(map);
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
     style: function(feature) {
         switch (feature.properties.FLOOR) {
-            case '1': return {color: "#FF0000"};
+            case '1': return {color: "#ff0000"};
         }
     }
 });	
