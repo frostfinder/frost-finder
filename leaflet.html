@@ -109,11 +109,11 @@
 	
 var map = L.map('map').setView([44.3408, -78.7409], 18);
 
-var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-	minZoom: 0,
-	maxZoom: 24,
-	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
-}).addTo(map);	
+// var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+//	minZoom: 0,
+//	maxZoom: 24,
+//	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+// }).addTo(map);	
 
 // var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
 // 	minZoom: 15,
@@ -122,6 +122,8 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 // 	ext: 'png'
 // }).addTo(map);
 
+map.createPane("pane450").style.zIndex = 450;	
+	
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
     style: function(feature) {
         switch (feature.properties.LEVEL_ID) {
@@ -129,7 +131,6 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
         }
     }
 });	
-
 	
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
@@ -146,6 +147,7 @@ var campus = new L.GeoJSON.AJAX("GeoJSON/campus.geojson", {
         return {
             color: "#c2d9b9",
 	    fillOpacity: 1
+		pane: 450
         }
     }
 });	
@@ -155,6 +157,7 @@ var paved = new L.GeoJSON.AJAX("GeoJSON/paved.geojson", {
         return {
             color: "#cccccc",
 	    fillOpacity: 1
+		pane: 450
         }
     }
 });
@@ -176,6 +179,7 @@ var buildings = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
         return {
             color: "#686868",
 	    fillOpacity: 1
+		pane: 450
         }
     }
 });	
@@ -186,6 +190,7 @@ var roads = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
         return {
             color: "#9c9c9c",
 	    fillOpacity: 1
+		pane: 450
         }
     }
 });	
