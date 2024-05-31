@@ -138,7 +138,7 @@ firstFloor.addTo(map);
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
     style: function(feature) {
         switch (feature.properties.FLOOR) {
-            case '1': return {color: "#0000ff"};
+            case '1': return {color: "#FF0000"};
         }
     }
 });	
