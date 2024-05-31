@@ -125,9 +125,9 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
     style: function(feature) {
-        switch (feature.properties.SPACETYPE) {
-            case 'Office': return {color: "#ff0000", fillOpacity: 1}
-	    case 'Classroom': return {color: "#FF5733", fillOpacity: 1};
+        return {
+            color: "#00FF00", // Set the color to green
+            fillOpacity: 1 // Set the fill opacity to fully opaque;
         }
     }
 });
