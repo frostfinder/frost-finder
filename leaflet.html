@@ -134,13 +134,11 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
         if (feature.properties.USE_TYPE) {
             switch (feature.properties.USE_TYPE) {
                 case "Student Service":
-                    return true; // Include feature in the layer
+                    return { color: "#00D1C3", fillOpacity: 1 }; // Include feature in the layer
                 default:
-                    return false; // Exclude feature from the layer
+                    return { color: "#00D1C3"}; // Exclude feature from the layer
             }
-        } else {
-            return { color: "#00D1C3" };
-        }
+        } 
     }
 });	
 	
