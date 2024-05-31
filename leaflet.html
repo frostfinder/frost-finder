@@ -128,8 +128,6 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
         switch (feature.properties.LEVEL_ID) {
             case 'FROST.L2':
                 return { color: "#00D1C3" };
-            default:
-                return {}; // Default style, in case LEVEL_ID doesn't match
         }
     },
     filter: function(feature) {
@@ -141,7 +139,7 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
                     return false; // Exclude feature from the layer
             }
         } else {
-            return false; // Exclude feature if USE_TYPE is not defined
+            return { color: "#00D1C3" };
         }
     }
 });	
