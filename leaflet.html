@@ -150,6 +150,14 @@ var campus = new L.GeoJSON.AJAX("GeoJSON/campus.geojson", {
     }
 });	
 
+var paved = new L.GeoJSON.AJAX("GeoJSON/paved.geojson", {
+    style: function(feature) {
+        return {
+            color: "#cccccc",
+	    fillOpacity: 1
+        }
+    }
+});
 
 var greenspace = new L.GeoJSON.AJAX("GeoJSON/greenspace.geojson", {
     style: function(feature) {
