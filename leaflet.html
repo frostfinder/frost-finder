@@ -122,6 +122,17 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 // 	ext: 'png'
 // }).addTo(map);
 
+var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
+    style: function(feature) {
+        switch (feature.properties.LEVEL_ID) {
+            case 'FROST.L2': return {color: "#00ff00"};
+        }
+    }
+});	
+secondFloor.on('data:loaded', function(){
+secondFloor.addTo(map);
+});
+	
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature) {
@@ -133,18 +144,18 @@ var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
 firstFloor.on('data:loaded', function(){
 firstFloor.addTo(map);
 });
-	
-var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
-    style: function(feature) {
-        switch (feature.properties.LEVEL_ID) {
-            case 'FROST.L2': return {color: "#00ff00"};
+
+var baseMap = new L.GeoJSON.AJAX("GeoJSON/basemap.geojson", {
+   style: function(feature) {
+        switch (feature.properties.ID) {
+            case '32': return {color: "#ff0000"};
         }
     }
 });	
-secondFloor.on('data:loaded', function(){
-secondFloor.addTo(map);
+firstFloor.on('data:loaded', function(){
+firstFloor.addTo(map);
 });
-
+	
 // Define overlays to be included in the layer toggle and add toggle to map, making layer selection static on screen
 var floors = {
     'Upper Floor': secondFloor,
