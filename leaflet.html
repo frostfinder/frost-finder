@@ -123,7 +123,7 @@ var map = L.map('map').setView([44.3408, -78.7409], 18);
 // }).addTo(map);
 
 	
-var secondFloor = new L.GeoJson.("GeoJSON/secondFloor.geojson", {
+var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
     style: function(feature) {
         switch (feature.properties.LEVEL_ID) {
             case 'FROST.L2': return {color: "#00D1C3 "};
