@@ -162,7 +162,9 @@ var greenspace = new L.GeoJSON.AJAX("GeoJSON/greenspace.geojson", {
         switch (feature.properties.TYPE) {
             case "Forest": return {color: "#97be87", fillOpacity: 1}
 		case "Yard": return {color: "#f4f2dc", fillOpacity: 1}
-		case "Water": return {color: "#aad3df", fillOpacity: 1};
+		case "Water": return {color: "#aad3df", fillOpacity: 1}
+		case "Garden": return {color: "#c2d9b9", fillOpacity: 1} 
+		case "Greenspace": return {color: "#c2d9b9", fillOpacity: 1};
         }
     }
 });	
