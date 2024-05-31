@@ -171,6 +171,30 @@ var greenspace = new L.GeoJSON.AJAX("GeoJSON/greenspace.geojson", {
 greenspace.on('data:loaded', function(){
 greenspace.addTo(map);
 });
+
+var buildings = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
+    style: function(feature) {
+        return {
+            color: "#686868",
+	    fillOpacity: 1
+        }
+    }
+});	
+buildings.on('data:loaded', function(){
+buildings.addTo(map);
+});
+
+var roads = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
+    style: function(feature) {
+        return {
+            color: "#9c9c9c",
+	    fillOpacity: 1
+        }
+    }
+});	
+roads.on('data:loaded', function(){
+roads.addTo(map);
+});
 	
 // Define overlays to be included in the layer toggle and add toggle to map, making layer selection static on screen
 var floors = {
