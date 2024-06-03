@@ -113,8 +113,8 @@ var map = L.map('map').setView([44.3408, -78.7409], 18);
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
      style: function(feature) {
         switch (feature.properties.USE_TYPE) {
-            case 'Washroom': return { color: "#0075C0 "}
-	     case 'Student Service': return { color: "#00D1C3 "}    
+            case 'Washroom': return { color: "#00D1C3"}
+	     case 'Student Service': return { color: "#FF0005"}    
 		case 'Office': return { color: "#000000 "}
 		case 'Storage': return { color: "#000000 "}
 		case 'Stairwell': return { color: "#b2b2b2"}	
@@ -148,8 +148,8 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature) {
         switch (feature.properties.USE_TYPE) {
-           case 'Washroom': return { color: "#0075C0 "}
-	     case 'Student Service': return { color: "#00D1C3 "}    
+           case 'Washroom': return { color: "00D1C3 "}
+	     case 'Student Service': return { color: "#FF0005 "}    
 		case 'Office': return { color: "#000000 "}
 		case 'Storage': return { color: "#000000 "}
 		case 'Stairwell': return { color: "#b2b2b2"}	
