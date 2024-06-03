@@ -261,7 +261,7 @@ var controlSearch = new L.Control.Search({
 
 map.addControl( controlSearch );
 
-function onEachFeature(feature, layer) {
+function onEachFeature(feature) {
     // does this feature have a property named popupContent?
     if (feature.properties && feature.properties.NAME) {
         layer.bindPopup(feature.properties.NAME);
