@@ -118,16 +118,16 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
      style: function(feature) {
         switch (feature.properties.USE_TYPE) {
-            case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 3}
-	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 3 }    
+            case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 2}
+	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 2 }    
 		case 'Office': return { color: "#000000 "}
 		case 'Storage': return { color: "#000000 "}
-		case 'Stairwell': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}	
-		case 'Ramp': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
-		case 'Elevator' : return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
-		case 'Hallway': return {  fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
-		case 'Entryway': return {fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
-		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 3}
+		case 'Stairwell': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}	
+		case 'Ramp': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Elevator' : return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Hallway': return {  fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Entryway': return {fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 2}
 		case 'Boardroom': return { color: "#000000 "}
 		case 'null': return { color: "#000000 "}
 		case 'Other': return { color: "#000000 "}
@@ -155,16 +155,16 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature) {
        switch (feature.properties.USE_TYPE) {
-            case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 3}
-	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 3 }    
+            case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 2}
+	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 2 }    
 		case 'Office': return { color: "#000000 "}
 		case 'Storage': return { color: "#000000 "}
-		case 'Stairwell': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}	
-		case 'Ramp': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
-		case 'Elevator' : return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
-		case 'Hallway': return {  fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
-		case 'Entryway': return {fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
-		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 3}
+		case 'Stairwell': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}	
+		case 'Ramp': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Elevator' : return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Hallway': return {  fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Entryway': return {fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 2}
 		case 'Boardroom': return { color: "#000000 "}
 		case 'null': return { color: "#000000 "}
 		case 'Other': return { color: "#000000 "}
