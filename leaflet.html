@@ -107,15 +107,15 @@
 // used "Leaflet Quick Start Guide" and "Using GeoJSON with Leaflet" from Leaflet documentation to learn process
 // https://leafletjs.com/examples.html
 	
-var bounds = [[44.338402, -78.747966], [44.341563, -78.727780]]; 
+// var bounds = [[44.338402, -78.747966], [44.341563, -78.727780]]; 
 
 var map = L.map('map', {
     center: [44.3408, -78.7409],
     zoom: 18,
-    maxBounds: bounds,
+    // maxBounds: bounds,
 });
 
-map.fitBounds(bounds);
+// map.fitBounds(bounds);
 
 var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
 	minZoom: 18,
