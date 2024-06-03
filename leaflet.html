@@ -109,19 +109,6 @@
 	
 var map = L.map('map').setView([44.3408, -78.7409], 18);
 
-// var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
-//	minZoom: 0,
-//	maxZoom: 24,
-//	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
-// }).addTo(map);	
-
-// var Stadia_AlidadeSmooth = L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth/{z}/{x}/{y}{r}.{ext}', {
-// 	minZoom: 15,
-// 	maxZoom: 24,
-// 	attribution: '&copy; <a href="https://www.stadiamaps.com/" target="_blank">Stadia Maps</a> &copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a> &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-// 	ext: 'png'
-// }).addTo(map);
-
 	
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
      style: function(feature) {
@@ -139,11 +126,16 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 		case 'null': return { color: "#000000 "}
 		case 'Other': return { color: "#000000 "}
 			;
-        } 
-     onEachFeature: function(feature, featureLayer) {
-featureLayer.bindPopup(feature.properties.NAME); 
-     }
+        }
+     },
+	onEachFeature: function(feature, layer) {
+        // Bind popup to each feature
+        if (feature.properties && feature.properties.NAME) {
+            layer.bindPopup(feature.properties.NAME); // You can customize this as needed
+        }
+   }
 });
+
     
 	
 // Add floor shapefiles from locally hosted GeoJSON
@@ -262,6 +254,7 @@ var controlSearch = new L.Control.Search({
 });
 
 map.addControl( controlSearch );
+
 
 	
 </script>
