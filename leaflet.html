@@ -139,8 +139,10 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 		case 'null': return { color: "#000000 "}
 		case 'Other': return { color: "#000000 "}
 			;
-        }
-    }
+        } 
+     onEachFeature: function(feature, featureLayer) {
+featureLayer.bindPopup(feature.properties.NAME); 
+     }
 });
     
 	
