@@ -125,7 +125,8 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 3}
 		case 'Boardroom': return { color: "#000000 "}
 		case 'null': return { color: "#000000 "}
-		case 'Other': return { color: "#000000 "}		
+		case 'Other': return { color: "#000000 "}
+		case '': return { color: "#000000 "}
         }
      },
 	onEachFeature: function(feature, layer) {
@@ -148,19 +149,20 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature) {
-        switch (feature.properties.USE_TYPE) {
-           case 'Washroom': return { color: "00D1C3 "}
-	     case 'Student Service': return { color: "#FF0005 "}    
+        case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 3}
+	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 3 }    
 		case 'Office': return { color: "#000000 "}
 		case 'Storage': return { color: "#000000 "}
-		case 'Stairwell': return { color: "#b2b2b2"}	
-		case 'Ramp': return { color: "#b2b2b2"}
-		case 'Hallway': return { color: "#b2b2b2"}
-		case 'Entryway': return { color: "#b2b2b2"}
-		case 'Classroom': return { color: "#FF8C00 "}
+		case 'Stairwell': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}	
+		case 'Ramp': return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
+		case 'Elevator' : return { fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
+		case 'Hallway': return {  fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
+		case 'Entryway': return {fillColor: "#b2b2b2", fillOpacity: 1, color: "#000000", weight: 3}
+		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 3}
 		case 'Boardroom': return { color: "#000000 "}
 		case 'null': return { color: "#000000 "}
-		case 'Other': return { color: "#000000 "};
+		case 'Other': return { color: "#000000 "}
+	  	case '': return { color: "#000000 "}
         }
     },onEachFeature: function(feature, layer) {
         // Bind popup to each feature on click
