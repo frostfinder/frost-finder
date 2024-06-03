@@ -126,7 +126,6 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 		case 'Boardroom': return { color: "#000000 "}
 		case 'null': return { color: "#000000 "}
 		case 'Other': return { color: "#000000 "}
-		case '': return { color: "#000000 "}
         }
      },
 	onEachFeature: function(feature, layer) {
@@ -162,7 +161,6 @@ var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
 		case 'Boardroom': return { color: "#000000 "}
 		case 'null': return { color: "#000000 "}
 		case 'Other': return { color: "#000000 "}
-	  	case '': return { color: "#000000 "}
         }
     },onEachFeature: function(feature, layer) {
         // Bind popup to each feature on click
