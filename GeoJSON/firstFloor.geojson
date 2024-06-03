@@ -31577,7 +31577,7 @@
         "LEVEL_ID": "FROST.L1",
         "NAME": "158N",
         "NAME_LONG": "Reflection Room",
-        "USE_TYPE": "Reflection Room",
+        "USE_TYPE": "Student Service",
         "Shape_Length": 21.78974446418103,
         "Shape_Area": 26.66260078942023
       }
@@ -32956,7 +32956,7 @@
         "LEVEL_ID": "FROST.L1",
         "NAME": null,
         "NAME_LONG": "",
-        "USE_TYPE": "Stoage",
+        "USE_TYPE": "Storage",
         "Shape_Length": 28.736210933290142,
         "Shape_Area": 30.638977084326182
       }
