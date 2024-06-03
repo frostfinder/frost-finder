@@ -261,6 +261,18 @@ var controlSearch = new L.Control.Search({
 
 map.addControl( controlSearch );
 
+function onEachFeature(feature, layer) {
+    // does this feature have a property named popupContent?
+    if (feature.properties && feature.properties.NAME) {
+        layer.bindPopup(feature.properties.NAME);
+    }
+}
+
+L.geoJSON(firstFloor, {
+    onEachFeature: onEachFeature
+}).addTo(map);
+
+	
 </script>
 	  
 <!-- End page content -->
