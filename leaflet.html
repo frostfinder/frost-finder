@@ -74,8 +74,11 @@ function onLocationFound(e) {
     L.circle(e.latlng, radius).addTo(map);
 }
 
-map.on('locationfound', onLocationFound);
+function onLocationError(e) {
+    alert(e.message);
+}
 
+map.on('locationerror', onLocationError);
 
 var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
 	minZoom: 16,
