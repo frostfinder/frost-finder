@@ -22369,7 +22369,7 @@
         "LEVEL_ID": "FROST.L1",
         "NAME": "208B",
         "NAME_LONG": "",
-        "USE_TYPE": null,
+        "USE_TYPE": "Storage",
         "Shape_Length": 26.195648165592402,
         "Shape_Area": 40.113165308978154
       }
@@ -22540,7 +22540,7 @@
         "LEVEL_ID": "FROST.L1",
         "NAME": "208A",
         "NAME_LONG": "",
-        "USE_TYPE": null,
+        "USE_TYPE": "Storage",
         "Shape_Length": 26.905622719311758,
         "Shape_Area": 43.866127300803136
       }
@@ -22695,7 +22695,7 @@
         "LEVEL_ID": "FROST.L1",
         "NAME": 208,
         "NAME_LONG": "",
-        "USE_TYPE": null,
+        "USE_TYPE": "Storage",
         "Shape_Length": 39.27994581980679,
         "Shape_Area": 85.18909420253937
       }
