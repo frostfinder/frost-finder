@@ -244,7 +244,7 @@ var frostFloors = L.featureGroup([firstFloor, secondFloor, buildings, greenspace
 
 // Create search box and add to map, searching features by room number
 var controlSearch = new L.Control.Search({
-    position:'topright',		
+    position: 'topright',		
     layer: frostFloors,
     propertyName: 'NAME', 
     initial: false,
@@ -252,10 +252,18 @@ var controlSearch = new L.Control.Search({
     marker: false
 });
 
-map.addControl( controlSearch );
+map.addControl(controlSearch);
 
+// Add event listener for when a location is found
+controlSearch.on('search:locationfound', function(e) {
+    // Create a popup with the desired content
+    var popupContent = "<b>Room Number:</b> " + feature.properties.NAME + "<br>" +
+                   "<b>Full Name:</b> " + feature.properties.NAME_LONG + "<br>" +
+                   "<b>Use Type:</b> " + feature.properties.USE_TYPE;
+    // Bind popup to the layer
+    e.layer.bindPopup(popupContent).openPopup();
+});
 
-	
 </script>
 	  
 <!-- End page content -->
