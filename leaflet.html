@@ -66,18 +66,17 @@ var map = L.map('map', {
     zoom: 18,
 });
 	
-map.locate({setView: true, maxZoom: 18});
+// map.locate({setView: true, maxZoom: 18});
 
-function onLocationFound(e) {
-    var radius = e.accuracy;
-    L.marker(e.latlng).addTo(map)
-    L.circle(e.latlng, radius).addTo(map);
+// function onLocationFound(e) {
+ //   var radius = e.accuracy;
+//    L.marker(e.latlng).addTo(map)
+ //   L.circle(e.latlng, radius).addTo(map);
 }
-map.on('locationfound', onLocationFound);
+// map.on('locationfound', onLocationFound);
 	
-function onLocationError(e) {
-    alert(e.message);
-}
+//function onLocationError(e) {
+  //  alert(e.message);}
 
 map.on('locationerror', onLocationError);
 
@@ -243,7 +242,8 @@ var layerControl = L.control.layers(null, floors, {collapsed: false}).addTo(map)
 var frostFloors = L.featureGroup([firstFloor, secondFloor, buildings, greenspace]).addTo(map);
 
 var controlSearch = new L.Control.Search({
-    position: 'topright',		
+    position: 'topright',
+    textPlaceholder: 'Search for a Room Number',
     layer: frostFloors,
     propertyName: 'NAME', 
     initial: false,
