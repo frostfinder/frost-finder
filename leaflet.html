@@ -129,10 +129,15 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
         }
      },
 	onEachFeature: function(feature, layer) {
-        // Bind popup to each feature
-        if (feature.properties && feature.properties.NAME) {
-            layer.bindPopup(feature.properties.NAME); // You can customize this as needed
-        }
+        // Bind popup to each feature on click
+        layer.on('click', function(e) {
+            if (feature.properties && feature.properties.NAME) {
+                var popupContent = feature.properties.NAME; 
+                layer.bindPopup(popupContent).openPopup();
+            } else {
+                console.log("Popup content missing");
+            }
+        });
    }
 });
 
