@@ -126,6 +126,7 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 		case 'Boardroom': return { color: "#000000 "}
 		case 'null': return { color: "#000000 "}
 		case 'Other': return { color: "#000000 "}
+		case '': return { color: "#000000 "}
         }
      },
 	onEachFeature: function(feature, layer) {
@@ -148,7 +149,8 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature) {
-        case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 3}
+       switch (feature.properties.USE_TYPE) {
+            case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 3}
 	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 3 }    
 		case 'Office': return { color: "#000000 "}
 		case 'Storage': return { color: "#000000 "}
@@ -162,7 +164,8 @@ var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
 		case 'null': return { color: "#000000 "}
 		case 'Other': return { color: "#000000 "}
         }
-    },onEachFeature: function(feature, layer) {
+    },
+	onEachFeature: function(feature, layer) {
         // Bind popup to each feature on click
         layer.on('click', function(e) {
             if (feature.properties && feature.properties.NAME) {
