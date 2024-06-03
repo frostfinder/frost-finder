@@ -247,7 +247,7 @@ var layerControl = L.control.layers(null, floors, {collapsed: false}).addTo(map)
 	
 // Create feature group to call within search box 
 // inspired by https://gis.stackexchange.com/questions/166044/applying-a-single-leaflet-search-control-to-search-multiple-layers
-var frostFloors = L.featureGroup([firstFloor, secondFloor]).addTo(map);
+var frostFloors = L.featureGroup([firstFloor, secondFloor, buildings, greenspace]).addTo(map);
 
 // Create search box and add to map, searching features by room number
 var controlSearch = new L.Control.Search({
@@ -260,17 +260,6 @@ var controlSearch = new L.Control.Search({
 });
 
 map.addControl( controlSearch );
-
-function onEachFeature(feature) {
-    // does this feature have a property named popupContent?
-    if (feature.properties && feature.properties.NAME) {
-        layer.bindPopup(feature.properties.NAME);
-    }
-}
-
-L.geoJSON(firstFloor, {
-    onEachFeature: onEachFeature
-}).addTo(map);
 
 	
 </script>
