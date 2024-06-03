@@ -19411,9 +19411,9 @@
         "AREA_GROSS": 50.5538321436518,
         "HEIGHT_RELATIVE": 5,
         "LEVEL_ID": "FROST.L2",
-        "NAME": null,
+        "NAME": 535,
         "NAME_LONG": null,
-        "USE_TYPE": null,
+        "USE_TYPE": "Classroom",
         "Shape_Length": 29.44204531866663,
         "Shape_Area": 50.71743681185064
       }
