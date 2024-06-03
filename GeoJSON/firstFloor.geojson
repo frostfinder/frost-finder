@@ -13538,7 +13538,7 @@
         "LEVEL_ID": "FROST.L1",
         "NAME": 335,
         "NAME_LONG": "Testing Center",
-        "USE_TYPE": "Testing Center",
+        "USE_TYPE": "Student Service",
         "Shape_Length": 51.768331501164525,
         "Shape_Area": 128.79556234423504
       }
@@ -31470,7 +31470,7 @@
         "LEVEL_ID": "FROST.L1",
         "NAME": 157,
         "NAME_LONG": "Bookstore",
-        "USE_TYPE": "Bookstore",
+        "USE_TYPE": "Student Service",
         "Shape_Length": 43.86842749666571,
         "Shape_Area": 103.96822881733453
       }
