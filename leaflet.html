@@ -110,7 +110,7 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
         // Bind popup to each feature on click
         layer.on('click', function(e) {
             if (feature.properties && feature.properties.NAME) {
-                var popupContent = "<b>Room Number:</b> " + feature.properties.UNIT_ID + "<br>" +
+                var popupContent = "<b>Room Number:</b> " + feature.properties.NAME + "<br>" +
                    "<b>Full Name:</b> " + feature.properties.NAME_LONG + "<br>" +
                    "<b>Use Type:</b> " + feature.properties.USE_TYPE;
                 layer.bindPopup(popupContent).openPopup();
@@ -148,7 +148,7 @@ var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
         // Bind popup to each feature on click
         layer.on('click', function(e) {
             if (feature.properties && feature.properties.NAME) {
-                var popupContent = "<b>Room Number:</b> " + feature.properties.UNIT_ID + "<br>" +
+                var popupContent = "<b>Room Number:</b> " + feature.properties.NAME + "<br>" +
                    "<b>Full Name:</b> " + feature.properties.NAME_LONG + "<br>" +
                    "<b>Use Type:</b> " + feature.properties.USE_TYPE;
                 layer.bindPopup(popupContent).openPopup();
@@ -244,13 +244,13 @@ var layerControl = L.control.layers(null, floors, {collapsed: false}).addTo(map)
 	
 // Create feature group to call within search box 
 // inspired by https://gis.stackexchange.com/questions/166044/applying-a-single-leaflet-search-control-to-search-multiple-layers
-var frostFloors = L.featureGroup([firstFloor, secondFloor]).addTo(map);
+var frostFloors = L.featureGroup([firstFloor, secondFloor, buildings, greenspace]).addTo(map);
 
 var controlSearch = new L.Control.Search({
     position: 'topright',
     textPlaceholder: 'Search for a Room Number',
     layer: frostFloors,
-    propertyName: 'UNIT_ID', 
+    propertyName: 'NAME', 
     initial: false,
     zoom: 20,
     marker: false
