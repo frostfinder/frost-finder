@@ -26902,7 +26902,7 @@
       "properties": {
         "OBJECTID": 148,
         "UNIT_ID": 149,
-        "USE_TYPE": "Classroom",
+        "USE_TYPE": "Hatchery",
         "NAME": 130,
         "NAME_LONG": "Hatchery",
         "LEVEL_ID": "FROST.MAIN.L1",
@@ -27258,7 +27258,7 @@
       "properties": {
         "OBJECTID": 152,
         "UNIT_ID": 153,
-        "USE_TYPE": "Classroom",
+        "USE_TYPE": "Hatchery",
         "NAME": "Classroom",
         "NAME_LONG": "Hatchery",
         "LEVEL_ID": "FROST.MAIN.L1",
@@ -27788,7 +27788,7 @@
       "properties": {
         "OBJECTID": 157,
         "UNIT_ID": 158,
-        "USE_TYPE": "Classroom",
+        "USE_TYPE": "Hatchery",
         "NAME": 131,
         "NAME_LONG": "Hatchery",
         "LEVEL_ID": "FROST.MAIN.L1",
