@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title> S.S. Pathfinders </title>
+	
+  <!-- STYLESHEETS -->
+  <link rel="stylesheet" href="CSS/stylesheet.css">
+  <link id="g5style" rel="stylesheet" href="CSS/stylesheet5.css">	
+  <!--Style sheet for social media icons from:https://www.w3schools.com/howto/howto_css_social_media_buttons.asp-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+     crossorigin="">
+  <!-- Leaflet Search CSS -->
+  <link rel="stylesheet" href="CSS/leaflet-search.css">
+	
+  <!-- SCRIPTS -->
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+     integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+     crossorigin=""></script>
+  <!-- Leaflet AJAX JS-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-ajax/2.1.0/leaflet.ajax.min.js"></script>
+  <!-- Leaflet Search JS
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-search/2.9.8/leaflet-search.min.js"></script> -->
+  <script src="JavaScript/leaflet-search.js"></script>
+	
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+</head>
+  <body>
+  
+  <!-- Navbar (sit on top) November 16,2023-->
+  <div class="topnav" id="myTopnav">
+    <a href="index.html"> <img src="images/Logo.png" alt="Our Logo" class="logo" width="25" height="25"></a>
+    <a href="project.html">Project</a>
+    <a href="instantapps.html">Instant Apps</a>
+    <a href="experiencebuilder.html">Experience Builder</a>  
+    <a href="leaflet.html" class="active1">Leaflet</a>
+    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
+  </div>
+
+<!-- Header -->
+<header class="imageHeader" >
+  <div>
+    <h1 class= "header-start"> S.S. Pathfinders </h1>
+    <p class = "header-Middle">Working Together to Navigate Your World</p>
+    <p class = "header-end"> Since 2024 </p>
+  </div>
+</header>
+
+<!-- Page content -->
+<div class="w3-container w3-padding-32 text-dive" id="projects">
+    <h3>Leaflet</h3> 
+    <p>The application below is a Leaflet map created using JavaScript, coded directly in this webpage (screenshots at bottom of page).</p>
+    <div id="map"></div>  
+
+</div>
+  
+<script>
+// used "Leaflet Quick Start Guide" and "Using GeoJSON with Leaflet" from Leaflet documentation to learn process
+// https://leafletjs.com/examples.html
+	
+var map = L.map('map', {
+    center: [44.3408, -78.7409],
+    zoom: 18,
+});
+	
+// map.locate({setView: true, maxZoom: 18});
+
+// function onLocationFound(e) {
+ //   var radius = e.accuracy;
+//    L.marker(e.latlng).addTo(map)
+ //   L.circle(e.latlng, radius).addTo(map);}
+// map.on('locationfound', onLocationFound);
+	
+//function onLocationError(e) {
+  //  alert(e.message);}
+
+// map.on('locationerror', onLocationError);
+
+var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+	minZoom: 16,
+	maxZoom: 19,
+	attribution: 'Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ, TomTom, Intermap, iPC, USGS, FAO, NPS, NRCAN, GeoBase, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), and the GIS User Community'
+}).addTo(map);	
+	
+var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
+     style: function(feature) {
+        switch (feature.properties.USE_TYPE) {
+            case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 2}
+	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 2 }    
+		case 'Office': return { color: "#000000 "}
+		case 'Storage': return { color: "#000000 "}
+		case 'Stairwell': return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}	
+		case 'Ramp': return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Elevator' : return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Hallway': return {  fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Entryway': return {fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Greenhouse': return { fillColor: "#73C810 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Hatchery': return { fillColor: "#0075C0 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Boardroom': return { color: "#000000 "}
+		case 'null': return { color: "#000000 "}
+		case 'Other': return { color: "#000000 "}
+		case '': return { color: "#000000 "}
+        }
+     },
+	onEachFeature: function(feature, layer) {
+        // Bind popup to each feature on click
+        layer.on('click', function(e) {
+            if (feature.properties && feature.properties.NAME) {
+                var popupContent = "<b>Room Number:</b> " + feature.properties.NAME + "<br>" +
+                   "<b>Full Name:</b> " + feature.properties.NAME_LONG + "<br>" +
+                   "<b>Use Type:</b> " + feature.properties.USE_TYPE;
+                layer.bindPopup(popupContent).openPopup();
+            } else {
+                console.log("Popup content missing");
+            }
+        });
+   }
+});
+
+    
+	
+// Add floor shapefiles from locally hosted GeoJSON
+var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
+   style: function(feature) {
+       switch (feature.properties.USE_TYPE) {
+            case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 2}
+	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 2 }    
+		case 'Office': return { color: "#000000 "}
+		case 'Storage': return { color: "#000000 "}
+		case 'Stairwell': return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}	
+		case 'Ramp': return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Elevator' : return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Hallway': return {  fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Entryway': return {fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Boardroom': return { color: "#000000 "}
+	        case 'Greenhouse': return { fillColor: "#73C810 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Hatchery': return { fillColor: "#0075C0 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'null': return { color: "#000000 "}
+		case 'Other': return { color: "#000000 "}
+        }
+    },
+	onEachFeature: function(feature, layer) {
+        // Bind popup to each feature on click
+        layer.on('click', function(e) {
+            if (feature.properties && feature.properties.NAME) {
+                var popupContent = "<b>Room Number:</b> " + feature.properties.NAME + "<br>" +
+                   "<b>Full Name:</b> " + feature.properties.NAME_LONG + "<br>" +
+                   "<b>Use Type:</b> " + feature.properties.USE_TYPE;
+                layer.bindPopup(popupContent).openPopup();
+            } else {
+                console.log("Popup content missing");
+            }
+        });
+   }
+});
+	
+	
+var campus = new L.GeoJSON.AJAX("GeoJSON/campus.geojson", {
+    style: function(feature) {
+        return {
+            color: "#c2d9b9",
+	    fillOpacity: 1
+        }
+    }
+});	
+
+var paved = new L.GeoJSON.AJAX("GeoJSON/paved.geojson", {
+    style: function(feature) {
+        return {
+            fillColor: "#cccccc",
+	    color: "#B2B2B2",
+	    weight: 1.5, 
+	    fillOpacity: 1
+        }
+    }
+});
+
+var greenspace = new L.GeoJSON.AJAX("GeoJSON/greenspace.geojson", {
+    style: function(feature) {
+        switch (feature.properties.TYPE) {
+            case "Forest": return {color: "#97be87", fillOpacity: 1}
+		case "Yard": return {color: "#f4f2dc", fillOpacity: 1, }
+		case "Water": return {fillColor: "#aad3df", fillOpacity: 1, color: "#89CBDF", weight: 1.5}
+		case "Garden": return {color: "#c2d9b9", fillOpacity: 1} 
+		case "Greenspace": return {color: "#c2d9b9", fillOpacity: 1};
+        }
+    }
+});	
+
+var buildings = new L.GeoJSON.AJAX("GeoJSON/buildings.geojson", {
+    style: function(feature) {
+        return {
+            color: "#686868",
+	    fillOpacity: 1
+        }
+    }
+});	
+
+
+var roads = new L.GeoJSON.AJAX("GeoJSON/roads.geojson", {
+    style: function(feature) {
+        return {
+            color: "#9c9c9c",
+	    fillOpacity: 1
+        }
+    }
+});	
+campus.on('data:loaded', function(){
+campus.addTo(map);
+});
+roads.on('data:loaded', function(){
+roads.addTo(map);
+});
+paved.on('data:loaded', function(){
+paved.addTo(map);
+});
+buildings.on('data:loaded', function(){
+buildings.addTo(map);
+});
+greenspace.on('data:loaded', function(){
+greenspace.addTo(map);
+});
+firstFloor.on('data:loaded', function(){
+firstFloor.addTo(map);
+});	
+secondFloor.on('data:loaded', function(){
+secondFloor.addTo(map);
+});
+
+secondFloor.bringToFront(map)	
+	
+// Define overlays to be included in the layer toggle and add toggle to map, making layer selection static on screen
+var floors = {
+    'Upper Floor': secondFloor,
+    'Lower Floor': firstFloor    
+}
+	
+var layerControl = L.control.layers(null, floors, {collapsed: false}).addTo(map);
+	
+// Create feature group to call within search box 
+// inspired by https://gis.stackexchange.com/questions/166044/applying-a-single-leaflet-search-control-to-search-multiple-layers
+var frostFloors = L.featureGroup([firstFloor, secondFloor, buildings, greenspace]).addTo(map);
+
+var controlSearch = new L.Control.Search({
+    position: 'topright',
+    textPlaceholder: 'Search for a Room Number',
+    layer: frostFloors,
+    propertyName: 'NAME', 
+    initial: false,
+    zoom: 20,
+    marker: false
+});
+
+map.addControl(controlSearch);
+
+// Add event listener for when a location is found
+controlSearch.on('search:locationfound', function(e) {
+    // Create a popup with the desired content
+    var popupContent = "<b>Room Number:</b> " + e.layer.feature.properties.NAME + "<br>" +
+                       "<b>Full Name:</b> " + e.layer.feature.properties.NAME_LONG + "<br>" +
+                       "<b>Use Type:</b> " + e.layer.feature.properties.USE_TYPE;
+    // Bind popup to the layer
+    e.layer.bindPopup(popupContent).openPopup();
+});
+
+</script>
+	  
+<!-- End page content -->
+
+<footer class="w3-center w3-padding-16 bottom" id="footer">
+</footer>
+<script src="JavaScript/Scripts.js"></script>
+</body>
+</html>
