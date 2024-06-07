@@ -90,8 +90,8 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
         switch (feature.properties.USE_TYPE) {
             case 'Washroom': return { fillColor: " #c6393c", fillOpacity: 1, color: "#000000", weight: 2}
 	     case 'Student Service': return { fillColor: " #E9CC5F", fillOpacity: 1, color: "#000000", weight: 2 }    
-		case 'Office': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Storage': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Office': return { fillcolor: "#C9B386 ", fillOpacity: 1, color:"#000000", weight: 2}
+		case 'Storage': return { fillcolor: "#C9B386 ", fillOpacity: 1, color:"#000000", weight: 2}
 		case 'Stairwell': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 2}	
 		case 'Ramp': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 2}
 		case 'Elevator' : return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 2}
@@ -101,8 +101,8 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 		case 'Boardroom': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
 	        case 'Greenhouse': return { fillColor: "#449169 ", fillOpacity: 1, color: "#000000", weight: 2}
 		case 'Hatchery': return { fillColor: "#265b79", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'null': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Other': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'null': return { fillcolor: "#C9B386 ", fillOpacity: 1, color:"#000000", weight: 2}
+		case 'Other': return { fillcolor: "#C9B386 ", fillOpacity: 1, color:"#000000", weight: 2}
         }
      },
 	onEachFeature: function(feature, layer) {
@@ -128,8 +128,8 @@ var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
         switch (feature.properties.USE_TYPE) {
             case 'Washroom': return { fillColor: " #c6393c", fillOpacity: 1, color: "#000000", weight: 2}
 	     case 'Student Service': return { fillColor: " #E9CC5F", fillOpacity: 1, color: "#000000", weight: 2 }    
-		case 'Office': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Storage': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'Office': return { fillcolor: "#C9B386 ", fillOpacity: 1, color:"#000000", weight: 2}
+		case 'Storage': return { fillcolor: "#C9B386 ", fillOpacity: 1, color:"#000000", weight: 2}
 		case 'Stairwell': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 2}	
 		case 'Ramp': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 2}
 		case 'Elevator' : return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 2}
@@ -139,8 +139,8 @@ var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
 		case 'Boardroom': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
 	        case 'Greenhouse': return { fillColor: "#449169 ", fillOpacity: 1, color: "#000000", weight: 2}
 		case 'Hatchery': return { fillColor: "#265b79", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'null': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Other': return { color: "#C9B386 ", fillOpacity: 1, color: "#000000", weight: 2}
+		case 'null': return { fillcolor: "#C9B386 ", fillOpacity: 1, color:"#000000", weight: 2}
+		case 'Other': return { fillcolor: "#C9B386 ", fillOpacity: 1, color:"#000000", weight: 2}
         }
     },
 	onEachFeature: function(feature, layer) {
