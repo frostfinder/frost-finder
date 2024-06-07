@@ -267,8 +267,17 @@ controlSearch.on('search:locationfound', function(e) {
     e.layer.bindPopup(popupContent).openPopup();
 });
 
-window.onload = function () {window.location.reload()}
-		
+$(document).ready(function(){    
+    //Check if the current URL contains '#'
+    if(document.URL.indexOf("#")==-1){
+        // Set the URL to whatever it was plus "#".
+        url = document.URL+"#";
+        location = "#";
+
+        //Reload the page
+        location.reload(true);
+    }
+});		
 </script>
 	  
 <!-- End page content -->
