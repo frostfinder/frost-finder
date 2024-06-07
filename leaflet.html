@@ -88,21 +88,21 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
      style: function(feature) {
         switch (feature.properties.USE_TYPE) {
-            case 'Washroom': return { fillColor: " #5FC3C3", fillOpacity: 1, color: "#000000", weight: 1}
-	     case 'Student Service': return { fillColor: " #e98000", fillOpacity: 1, color: "#000000", weight: 1}    
-		case 'Office': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
-		case 'Storage': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
-		case 'Stairwell': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}	
-		case 'Ramp': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Elevator' : return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Hallway': return {  fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Entryway': return {fillColor: "#F7F0D8 ", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Classroom': return { fillColor: "#97826F", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Boardroom': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
+            case 'Washroom': return { fillColor: " #094981", fillOpacity: 1, color: "#000000", weight: 1}
+	     case 'Student Service': return { fillColor: " #648684", fillOpacity: 1, color: "#000000", weight: 1}    
+		case 'Office': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Storage': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Stairwell': return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}	
+		case 'Ramp': return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Elevator' : return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Hallway': return {  fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Entryway': return {fillColor: "#F8EBC5 ", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Classroom': return { fillColor: "#988558", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Boardroom': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
 	        case 'Greenhouse': return { fillColor: "#449169 ", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Hatchery': return { fillColor: "#265b79", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'null': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
-		case 'Other': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Hatchery': return { fillColor: "#091440", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'null': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Other': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
         }
      },
 	onEachFeature: function(feature, layer) {
@@ -126,21 +126,21 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature)  {
         switch (feature.properties.USE_TYPE) {
-            case 'Washroom': return { fillColor: " #5FC3C3", fillOpacity: 1, color: "#000000", weight: 1}
-	     case 'Student Service': return { fillColor: "#e98000", fillOpacity: 1, color: "#000000", weight: 1}    
-		case 'Office': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
-		case 'Storage': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
-		case 'Stairwell': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}	
-		case 'Ramp': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Elevator' : return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Hallway': return {  fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Entryway': return {fillColor: "#F7F0D8 ", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Classroom': return { fillColor: "#97826F", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Boardroom': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
+            case 'Washroom': return { fillColor: " #094981", fillOpacity: 1, color: "#000000", weight: 1}
+	     case 'Student Service': return { fillColor: " #648684", fillOpacity: 1, color: "#000000", weight: 1}    
+		case 'Office': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Storage': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Stairwell': return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}	
+		case 'Ramp': return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Elevator' : return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Hallway': return {  fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Entryway': return {fillColor: "#F8EBC5 ", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Classroom': return { fillColor: "#988558", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Boardroom': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
 	        case 'Greenhouse': return { fillColor: "#449169 ", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'Hatchery': return { fillColor: "#265b79", fillOpacity: 1, color: "#000000", weight: 1}
-		case 'null': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
-		case 'Other': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Hatchery': return { fillColor: "#091440", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'null': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Other': return { fillColor: "#C2B280", fillOpacity: 1, color:"#000000", weight: 1}
         }
     },
 	onEachFeature: function(feature, layer) {
