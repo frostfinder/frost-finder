@@ -92,11 +92,11 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 	     case 'Student Service': return { fillColor: " #326699 ", fillOpacity: 1, color: "#000000", weight: 2 }    
 		case 'Office': return { color: "#000000 "}
 		case 'Storage': return { color: "#000000 "}
-		case 'Stairwell': return { fillColor: "#969595", fillOpacity: 1} //color: "#000000", weight: 2}	
-		case 'Ramp': return { fillColor: "#969595", fillOpacity: 1} //color: "#000000", weight: 2}
-		case 'Elevator' : return { fillColor: "#969595", fillOpacity: 1} //color: "#000000", weight: 2}
-		case 'Hallway': return {  fillColor: "#969595", fillOpacity: 1}//color: "#000000", weight: 2}
-		case 'Entryway': return {fillColor: "#969595", fillOpacity: 1}//color: "#000000", weight: 2}
+		case 'Stairwell': return { fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}	
+		case 'Ramp': return { fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}
+		case 'Elevator' : return { fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}
+		case 'Hallway': return {  fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}
+		case 'Entryway': return {fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}
 		case 'Classroom': return { fillColor: "#cc8733 ", fillOpacity: 1, color: "#000000", weight: 2}
 		case 'Boardroom': return { color: "#000000 "}
 	        case 'Greenhouse': return { fillColor: "#6e9146 ", fillOpacity: 1, color: "#000000", weight: 2}
@@ -124,17 +124,17 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 	
 // Add floor shapefiles from locally hosted GeoJSON
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
-   style: function(feature) {
-       switch (feature.properties.USE_TYPE)  {
+   style: function(feature)  {
+        switch (feature.properties.USE_TYPE) {
             case 'Washroom': return { fillColor: " #c6393c", fillOpacity: 1, color: "#000000", weight: 2}
 	     case 'Student Service': return { fillColor: " #326699 ", fillOpacity: 1, color: "#000000", weight: 2 }    
 		case 'Office': return { color: "#000000 "}
 		case 'Storage': return { color: "#000000 "}
-		case 'Stairwell': return { fillColor: "#969595", fillOpacity: 1} //color: "#000000", weight: 2}	
-		case 'Ramp': return { fillColor: "#969595", fillOpacity: 1}// color: "#000000", weight: 2}
-		case 'Elevator' : return { fillColor: "#969595", fillOpacity: 1} //color: "#000000", weight: 2}
-		case 'Hallway': return {  fillColor: "#969595", fillOpacity: 1} //color: "#000000", weight: 2}
-		case 'Entryway': return {fillColor: "#969595", fillOpacity: 1} //color: "#000000", weight: 2}
+		case 'Stairwell': return { fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}	
+		case 'Ramp': return { fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}
+		case 'Elevator' : return { fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}
+		case 'Hallway': return {  fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}
+		case 'Entryway': return {fillColor: "#969595", fillOpacity: 1, color: "#969595", weight: 2}
 		case 'Classroom': return { fillColor: "#cc8733 ", fillOpacity: 1, color: "#000000", weight: 2}
 		case 'Boardroom': return { color: "#000000 "}
 	        case 'Greenhouse': return { fillColor: "#6e9146 ", fillOpacity: 1, color: "#000000", weight: 2}
