@@ -88,8 +88,8 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
      style: function(feature) {
         switch (feature.properties.USE_TYPE) {
-            case 'Washroom': return { fillColor: " #c6393c", fillOpacity: 1, color: "#000000", weight: 1}
-	     case 'Student Service': return { fillColor: " #5FC3C3", fillOpacity: 1, color: "#000000", weight: 1}    
+            case 'Washroom': return { fillColor: " #5FC3C3", fillOpacity: 1, color: "#000000", weight: 1}
+	     case 'Student Service': return { fillColor: " #e98000", fillOpacity: 1, color: "#000000", weight: 1}    
 		case 'Office': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
 		case 'Storage': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
 		case 'Stairwell': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}	
@@ -126,8 +126,8 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature)  {
         switch (feature.properties.USE_TYPE) {
-            case 'Washroom': return { fillColor: " #c6393c", fillOpacity: 1, color: "#000000", weight: 1}
-	     case 'Student Service': return { fillColor: "#5FC3C3", fillOpacity: 1, color: "#000000", weight: 1}    
+            case 'Washroom': return { fillColor: " #5FC3C3", fillOpacity: 1, color: "#000000", weight: 1}
+	     case 'Student Service': return { fillColor: "#e98000", fillOpacity: 1, color: "#000000", weight: 1}    
 		case 'Office': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
 		case 'Storage': return { fillColor: "#C9B386", fillOpacity: 1, color:"#000000", weight: 1}
 		case 'Stairwell': return { fillColor: "#F7F0D8", fillOpacity: 1, color: "#000000", weight: 1}	
