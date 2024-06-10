@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Custom Indoor Routing</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.21/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.21/"></script>
+    <style>
+        #viewDiv {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+    <script>
+        require([
+            "esri/Map",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/tasks/RouteTask",
+            "esri/tasks/support/RouteParameters",
+            "esri/tasks/support/FeatureSet",
+            "dojo/domReady!"
+        ], function(Map, MapView, FeatureLayer, RouteTask, RouteParameters, FeatureSet) {
+
+            var map = new Map({
+                basemap: "streets-navigation-vector"
+            });
+
+            var view = new MapView({
+                container: "viewDiv",
+                map: map,
+                center: [-118.71511,34.09042], // Longitude, latitude
+                zoom: 15
+            });
+
+            var routeTask = new RouteTask({
+                url: "https://luna.flemingcollege.ca/arcgis/rest/services/Group1224/Network/MapServer"
+            });
+
+            view.on("click", function(event) {
+                var routeParams = new RouteParameters({
+                    stops: new FeatureSet(),
+                    outSpatialReference: { wkid: 3857 }
+                });
+
+                // Add clicked point as a stop
+                var stop = {
+                    geometry: event.mapPoint
+                };
+                routeParams.stops.features.push(stop);
+
+                if (routeParams.stops.features.length >= 2) {
+                    routeTask.solve(routeParams).then(showRoute);
+                }
+            });
+
+            function showRoute(data) {
+                var routeResult = data.routeResults[0].route;
+                routeResult.symbol = {
+                    type: "simple-line",
+                    color: [5, 150, 255],
+                    width: 3
+                };
+                view.graphics.add(routeResult);
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="viewDiv"></div>
+</body>
+</html>
