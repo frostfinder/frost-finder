@@ -119,19 +119,12 @@ h4, h5 {
 	border-color: #f1f1f1!important;
 } 
 
-.container {
-   position: relative;
-   overflow: hidden;
-   padding-top: 56.25%;
-	height: 800px;
-	width: 100%;
-}
-.container iframe {
+iframe {
    position: absolute;
    top: 0;
    left: 0;
    height: 800px;
-width: 100%;
+   width: 100%;
    border: 0;
 }
 
