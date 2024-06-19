@@ -79,7 +79,7 @@
             display: flex;
             flex-direction: column;
             font-family: Arial, sans-serif;
-	    text-align: center;
+	    align-items: center;
         }
 
         .legend-item {
@@ -319,17 +319,6 @@ controlSearch.on('search:locationfound', function(e) {
     // Bind popup to the layer
     e.layer.bindPopup(popupContent).openPopup();
 });
-
-// Define custom legend control
-var legend = L.control({ position: 'bottomright' });
-
-legend.onAdd = function(map) {
-    var div = L.DomUtil.create('div', 'legend');
-    div.innerHTML += '<h4>Legend</h4>';
-    return div;
-};
-
-legend.addTo(map);
 
 // Function to add legend items
 function addLegendItem(color, label) {
