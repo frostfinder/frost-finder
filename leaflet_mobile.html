@@ -55,13 +55,13 @@
     <h3>Leaflet</h3> 
     <p>The application below is a Leaflet map created using JavaScript, coded directly in this webpage. Page may need to be reloaded for layers to load in the correct order.</p>
 </div>
+
+<!--creates the space where the map will be loaded-->
+<div id="map"></div>
 	
 <!--creates the space where the legend will be put -->
 <div class="legend" id="legend"> <h3>Legend</h3> </div>    
 	
-<!--creates the space where the map will be loaded-->
-<div id="map"></div>
-  
 </body>
     <style>
         #map {
@@ -80,6 +80,7 @@
             flex-direction: column;
             font-family: Arial, sans-serif;
 	    align-items: center;
+	    padding: 50px;
         }
 
         .legend-item {
