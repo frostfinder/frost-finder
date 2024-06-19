@@ -33,20 +33,24 @@
   <script src="https://unpkg.com/leaflet-routing-machine"></script>
 
      <!-- Header -->
-<header class="imageHeader" >
+<header >
   <div>
     <h1 class= "header-start"> S.S. Pathfinders </h1>
     <p class = "header-Middle">Working Together to Navigate Your World</p>
     <p class = "header-end"> Since 2024 </p>
   </div>
 </header>
+
+<div class="w3-container w3-padding-32 text-dive" id="projects">
+    <h3>FrostFinder Open Source</h3> 
+    <p>The application below is a Leaflet map created using JavaScript, coded directly in this webpage. Page may need to be reloaded for layers to load in the correct order.</p>
+  </div>
+	 
+<!--creates the space where the map will be loaded-->
+<div id="map"></div>
   
-     <!--creates the space where the map will be loaded-->
-    <div id="map"></div>
-  
-     <!--creates the space where the legend will be put-->
-    <div id="legend"><h3>Legend</h3></div>
-  
+<!--creates the space where the legend will be put <div id="legend"><h3>Legend</h3></div> -->
+    
   </body>
     <style>
         #map {
