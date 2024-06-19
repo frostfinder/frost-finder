@@ -59,7 +59,8 @@
 <!--creates the space where the map will be loaded-->
 <div id="map"></div>
   
-<!--creates the space where the legend will be put <div id="legend"><h3>Legend</h3></div> -->
+<!--creates the space where the legend will be put -->
+<div class="legend" id="legend"> <h3>Legend</h3> </div> 
     
 </body>
     <style>
@@ -74,21 +75,24 @@
           padding: 0;
           background-color:#FFFFFF;
         }
-        #legend {
-          font-family: Arial, sans-serif;
-          background: #fff;
-          padding: 10px;
-          margin: 10px;
-          border: 3px solid #000;
+       .legend {
+            display: flex;
+            flex-direction: column;
+            font-family: Arial, sans-serif;
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+        .color-box {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
         }
         
-        #legend h3 {
-          margin-top: 0;
-        }
-        
-        #legend img {
-          vertical-align: middle;
-        }
         header {
          	color: #FF7F50;
          	font-family: "Helvetica";
@@ -314,7 +318,30 @@ controlSearch.on('search:locationfound', function(e) {
     // Bind popup to the layer
     e.layer.bindPopup(popupContent).openPopup();
 });
-  
+
+function addLegendItem(color, label) {
+            const legend = document.getElementById('legend');
+            const legendItem = document.createElement('div');
+            legendItem.className = 'legend-item';
+
+            const colorBox = document.createElement('div');
+            colorBox.className = 'color-box';
+            colorBox.style.backgroundColor = color;
+
+            const labelText = document.createElement('span');
+            labelText.textContent = label;
+
+            legendItem.appendChild(colorBox);
+            legendItem.appendChild(labelText);
+            legend.appendChild(legendItem);
+        }
+
+        // Adding custom legend items
+        addLegendItem('#349c95', 'Washroom');
+        addLegendItem('#c65a1f ', 'Student Services');
+        addLegendItem('#916a3', 'Classroom');
+        // Add more legend items as needed
+	 
 </script>
 
 <footer class="w3-center w3-padding-16 bottom" id="footer">
