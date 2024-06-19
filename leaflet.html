@@ -58,6 +58,21 @@
 <script>
 // used "Leaflet Quick Start Guide" and "Using GeoJSON with Leaflet" from Leaflet documentation to learn process
 // https://leafletjs.com/examples.html
+
+ // Function to check if the user is on a mobile device
+    function isMobile() {
+        return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
+
+    // Function to redirect to a different page if on mobile
+    function redirectToMobilePage() {
+        if (isMobile()) {
+            window.location.href = "https://frostfinder.github.io/frost-finder/leaflet_mobile.html";
+        }
+    }
+
+    // Call the function on page load
+    window.onload = redirectToMobilePage;
 	
 var map = L.map('map', {
     center: [44.3408, -78.7409],
