@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title> S.S. Pathfinders </title>
+<!doctype html>
+<html>
+ <head>
+    <title>FrostFinder Open Source</title>
 	
-  <!-- STYLESHEETS -->
-  <link rel="stylesheet" href="CSS/stylesheet.css">
+	<link rel="stylesheet" href="CSS/stylesheet.css">
   <link id="g5style" rel="stylesheet" href="CSS/stylesheet5.css">	
   <!--Style sheet for social media icons from:https://www.w3schools.com/howto/howto_css_social_media_buttons.asp-->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -17,7 +16,10 @@
   <!-- Leaflet Search CSS -->
   <link rel="stylesheet" href="CSS/leaflet-search.css">
 	
-  <!-- SCRIPTS -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+ <body>
+     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDv3MGflguusDaLmV_-BUlmuoUI4EbM88w&callback=initMap&v=weekly" async></script>
+	 <!-- SCRIPTS -->
   <!-- Leaflet JS -->
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
@@ -29,22 +31,8 @@
   <script src="JavaScript/leaflet-search.js"></script>
   <!-- Leaflet routing machine JS -->
   <script src="https://unpkg.com/leaflet-routing-machine"></script>
-	
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">  
-</head>
-  <body>
-  
-  <!-- Navbar (sit on top) November 16,2023-->
-  <div class="topnav" id="myTopnav">
-    <a href="index.html"> <img src="images/Logo.png" alt="Our Logo" class="logo" width="25" height="25"></a>
-    <a href="project.html">Project</a>
-    <a href="instantapps.html">Instant Apps</a>
-    <a href="experiencebuilder.html">Experience Builder</a>  
-    <a href="leaflet.html" class="active1">Leaflet</a>
-    <a href="javascript:void(0);" class="icon" onclick="myFunction()">&#9776;</a>
-  </div>
 
-<!-- Header -->
+     <!-- Header -->
 <header class="imageHeader" >
   <div>
     <h1 class= "header-start"> S.S. Pathfinders </h1>
@@ -52,17 +40,58 @@
     <p class = "header-end"> Since 2024 </p>
   </div>
 </header>
+  
+     <!--creates the space where the map will be loaded-->
+    <div id="map"></div>
+  
+     <!--creates the space where the legend will be put-->
+    <div id="legend"><h3>Legend</h3></div>
+  
+  </body>
+    <style>
+        #map {
+          height: 100%;
+        }
 
-<!-- Page content -->
-<div class="w3-container w3-padding-32 text-dive" id="projects">
-    <h3>Leaflet</h3> 
-    <p>The application below is a Leaflet map created using JavaScript, coded directly in this webpage (screenshots at bottom of page).</p>
-    <div id="map"></div>  
+        html,
+        body {
+          height: 100%;
+          margin: 0;
+          padding: 0;
+          background-color:#E5E4E2;
+        }
+        #legend {
+          font-family: Arial, sans-serif;
+          background: #fff;
+          padding: 10px;
+          margin: 10px;
+          border: 3px solid #000;
+        }
+        
+        #legend h3 {
+          margin-top: 0;
+        }
+        
+        #legend img {
+          vertical-align: middle;
+        }
+        header {
+         	color: #FF7F50;
+         	font-family: "Helvetica";
+         	font-size: 60px;
+         	text-align: center;
+        }
+       h1 {
+         	color: Black;
+         	margin-left: 22px;
+         	font-family: "Helvetica";
+          text-align: center;
+         }
 
-</div>
-</body>
-	  
-<script>
+    </style>
+   </head>
+ 
+ <script>
 // used "Leaflet Quick Start Guide" and "Using GeoJSON with Leaflet" from Leaflet documentation to learn process
 // https://leafletjs.com/examples.html
 	
@@ -93,22 +122,21 @@ var Esri_WorldTopoMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest
 var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
      style: function(feature) {
         switch (feature.properties.USE_TYPE) {
-            case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 2}
-	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 2 }    
-		case 'Office': return { color: "#000000 "}
-		case 'Storage': return { color: "#000000 "}
-		case 'Stairwell': return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}	
-		case 'Ramp': return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Elevator' : return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Hallway': return {  fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Entryway': return {fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Greenhouse': return { fillColor: "#73C810 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Hatchery': return { fillColor: "#0075C0 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Boardroom': return { color: "#000000 "}
-		case 'null': return { color: "#000000 "}
-		case 'Other': return { color: "#000000 "}
-		case '': return { color: "#000000 "}
+            case 'Washroom': return { fillColor: " #349c95 ", fillOpacity: 1, color: "#000000", weight: 1}
+	     case 'Student Service': return { fillColor: " #c65a1f ", fillOpacity: 1, color: "#000000", weight: 1}    
+		case 'Office': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Storage': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Stairwell': return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}	
+		case 'Ramp': return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Elevator' : return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Hallway': return {  fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Entryway': return {fillColor: "#F8EBC5 ", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Classroom': return { fillColor: "#916a3a", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Boardroom': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
+	        case 'Greenhouse': return { fillColor: "#457709 ", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Hatchery': return { fillColor: "#005e9a ", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'null': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Other': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
         }
      },
 	onEachFeature: function(feature, layer) {
@@ -132,21 +160,21 @@ var secondFloor = new L.GeoJSON.AJAX("GeoJSON/secondFloor.geojson", {
 var firstFloor = new L.GeoJSON.AJAX("GeoJSON/firstFloor.geojson", {
    style: function(feature) {
        switch (feature.properties.USE_TYPE) {
-            case 'Washroom': return { fillColor: "#00D1C3", fillOpacity: 1, color: "#000000", weight: 2}
-	     case 'Student Service': return { fillColor: "#FF0005", fillOpacity: 1, color: "#000000", weight: 2 }    
-		case 'Office': return { color: "#000000 "}
-		case 'Storage': return { color: "#000000 "}
-		case 'Stairwell': return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}	
-		case 'Ramp': return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Elevator' : return { fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Hallway': return {  fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Entryway': return {fillColor: "#828282", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Classroom': return { fillColor: "#FF8C00 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Boardroom': return { color: "#000000 "}
-	        case 'Greenhouse': return { fillColor: "#73C810 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'Hatchery': return { fillColor: "#0075C0 ", fillOpacity: 1, color: "#000000", weight: 2}
-		case 'null': return { color: "#000000 "}
-		case 'Other': return { color: "#000000 "}
+           case 'Washroom': return { fillColor: " #349c95 ", fillOpacity: 1, color: "#000000", weight: 1}
+	     case 'Student Service': return { fillColor: " #c65a1f ", fillOpacity: 1, color: "#000000", weight: 1}    
+		case 'Office': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Storage': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Stairwell': return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}	
+		case 'Ramp': return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Elevator' : return { fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Hallway': return {  fillColor: "#F8EBC5", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Entryway': return {fillColor: "#F8EBC5 ", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Classroom': return { fillColor: "#916a3a", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Boardroom': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
+	        case 'Greenhouse': return { fillColor: "#457709 ", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'Hatchery': return { fillColor: "#005e9a ", fillOpacity: 1, color: "#000000", weight: 1}
+		case 'null': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
+		case 'Other': return { fillColor: "#d2b692", fillOpacity: 1, color:"#000000", weight: 1}
         }
     },
 	onEachFeature: function(feature, layer) {
@@ -272,12 +300,10 @@ controlSearch.on('search:locationfound', function(e) {
     // Bind popup to the layer
     e.layer.bindPopup(popupContent).openPopup();
 });
-
+  
 </script>
-	  
-<!-- End page content -->
 
 <footer class="w3-center w3-padding-16 bottom" id="footer">
 </footer>
-<script src="JavaScript/Scripts.js"></script>
+
 </html>
