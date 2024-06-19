@@ -320,30 +320,42 @@ controlSearch.on('search:locationfound', function(e) {
     e.layer.bindPopup(popupContent).openPopup();
 });
 
+// Define custom legend control
+var legend = L.control({ position: 'bottomright' });
+
+legend.onAdd = function(map) {
+    var div = L.DomUtil.create('div', 'legend');
+    div.innerHTML += '<h4>Legend</h4>';
+    return div;
+};
+
+legend.addTo(map);
+
+// Function to add legend items
 function addLegendItem(color, label) {
-            const legend = document.getElementById('legend');
-            const legendItem = document.createElement('div');
-            legendItem.className = 'legend-item';
+    const legendDiv = document.querySelector('.legend');
+    const legendItem = document.createElement('div');
+    legendItem.className = 'legend-item';
 
-            const colorBox = document.createElement('div');
-            colorBox.className = 'color-box';
-            colorBox.style.backgroundColor = color;
+    const colorBox = document.createElement('div');
+    colorBox.className = 'color-box';
+    colorBox.style.backgroundColor = color;
 
-            const labelText = document.createElement('span');
-            labelText.textContent = label;
+    const labelText = document.createElement('span');
+    labelText.textContent = label;
 
-            legendItem.appendChild(colorBox);
-            legendItem.appendChild(labelText);
-            legend.appendChild(legendItem);
-        }
+    legendItem.appendChild(colorBox);
+    legendItem.appendChild(labelText);
+    legendDiv.appendChild(legendItem);
+}
 
-        // Adding custom legend items
-        addLegendItem('#349c95', 'Washroom');
-        addLegendItem('#c65a1f ', 'Student Services');
-        addLegendItem('#916a3a', 'Classroom');
-	addLegendItem('#457709 ','Greenhouse');
-	addLegendItem('#005e9a','Hatchery');
-        // Add more legend items as needed
+// Adding custom legend items
+addLegendItem('#349c95', 'Washroom');
+addLegendItem('#c65a1f', 'Student Services');
+addLegendItem('#916a3a', 'Classroom');
+addLegendItem('#457709', 'Greenhouse');
+addLegendItem('#005e9a', 'Hatchery');
+// Add more legend items as needed
 	 
 </script>
 
