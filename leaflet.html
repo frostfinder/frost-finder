@@ -222,8 +222,14 @@ var roads = new L.GeoJSON.AJAX("GeoJSON/roads.geojson", {
         }
     }
 });	
-var second = new L.geoJSON.AJAX("GeoJSON/secondfloor.geojson")
-
+var second = new L.GeoJSON.AJAX("GeoJSON/secondfloor.geojson", {
+    style: function(feature) {
+        return {
+            color: "#686868",
+	    fillOpacity: 1
+        }
+    }
+});	
 
 campus.on('data:loaded', function(){
 campus.addTo(map);
