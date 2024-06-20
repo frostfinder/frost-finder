@@ -222,6 +222,9 @@ var roads = new L.GeoJSON.AJAX("GeoJSON/roads.geojson", {
         }
     }
 });	
+var second = new L.geoJSON.AJAX("GeoJSON/secondfloor.geojson")
+
+
 campus.on('data:loaded', function(){
 campus.addTo(map);
 });
@@ -237,6 +240,9 @@ buildings.addTo(map);
 greenspace.on('data:loaded', function(){
 greenspace.addTo(map);
 });
+second.on('data:loaded', function(){
+second.addTo(map);
+});
 firstFloor.on('data:loaded', function(){
 firstFloor.addTo(map);
 });	
@@ -245,10 +251,12 @@ secondFloor.addTo(map);
 });
 
 secondFloor.bringToFront(map)	
+
+var secondfloors = L.featureGroup([secondFloor, second]).addTo(map);
 	
 // Define overlays to be included in the layer toggle and add toggle to map, making layer selection static on screen
 var floors = {
-    'Upper Floor': secondFloor,
+    'Upper Floor': secondFloors,
     'Lower Floor': firstFloor    
 }
 	
